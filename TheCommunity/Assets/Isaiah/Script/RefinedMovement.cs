@@ -104,14 +104,14 @@ public class RefinedMovement : MonoBehaviour
         //Move right
         if (Input.GetAxis("Horizontal") > 0)
         {
-            sr.flipX = false;
+            //sr.flipX = false;
             rb.AddForce(new Vector2(moveSpeed, 0));
         }
 
         //Move left
         if (Input.GetAxis("Horizontal") < 0)
         {
-            sr.flipX = true;
+            //sr.flipX = true;
             rb.AddForce(new Vector2(-moveSpeed, 0));
         }
         Flip();
