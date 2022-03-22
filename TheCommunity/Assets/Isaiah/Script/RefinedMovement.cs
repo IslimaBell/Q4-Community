@@ -136,13 +136,13 @@ public class RefinedMovement : MonoBehaviour
         if (ClimbingAllowed) //Climbing
         {
             //animator.SetBool("IsClimbing", true);
-            rb.isKinematic = true;
+            rb.gravityScale = 0;
             rb.velocity = new Vector2(horizontal * moveSpeed, dirY);
         }
         else
         {
             //animator.SetBool("IsClimbing", false);
-            rb.isKinematic = false;
+            rb.gravityScale = 1;
             rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
         }
     }
