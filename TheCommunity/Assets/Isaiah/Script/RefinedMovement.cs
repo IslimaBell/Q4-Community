@@ -32,9 +32,18 @@ public class RefinedMovement : MonoBehaviour
     private bool facingRight = true;
     private SpriteRenderer sr;
 
+    BoxCollider2D bc;
+    public float crouchPercentOfHeight = 0.5f;
+    public bool IsCrouching;
+    private Vector2 standColliderSize;
+    private Vector2 crouchColliderSize;
+
+
     public Animator animator;
 
     public bool ClimbingAllowed { get; set; }
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +51,12 @@ public class RefinedMovement : MonoBehaviour
         extraJumps = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        bc = GetComponent<BoxCollider2D>();
+
+        standColliderSize = bc.size;
+
+        crouchColliderSize = new Vector2(standColliderSize.x, standColliderSize.y * crouchPercentOfHeight);
+
     }
 
     // Update is called once per frame
@@ -115,6 +130,23 @@ public class RefinedMovement : MonoBehaviour
             rb.AddForce(new Vector2(-moveSpeed, 0));
         }
         Flip();
+
+        /*
+        if (Input.GetKeyDown(KeyCode.LeftShift)) //Crouching
+        {
+            
+            IsCrouching = true;
+            bc.size = crouchColliderSize;
+            Debug.Log(IsCrouching);
+        }
+        else{ IsCrouching = false; }
+
+        if (IsCrouching == true)
+        {
+            Debug.Log(IsCrouching);
+            bc.size = standColliderSize;
+        }
+        */
     }
 
 
@@ -153,4 +185,6 @@ public class RefinedMovement : MonoBehaviour
 
         return grounded;
     }
+
+  
 }
