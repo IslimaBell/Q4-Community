@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class RefinedMovement : MonoBehaviour
 {
-    float coyoteRemember = 0;
+    
+    
+    float coyoteRemember = 0;[Header("Jump")]
     [SerializeField]
     float coyoteTime = 0.25f;
 
@@ -23,23 +25,29 @@ public class RefinedMovement : MonoBehaviour
     private float jumpPower = 1f;
 
     private float horizontal;
+    
+    [Header("Move")]
     [SerializeField]
     private float moveSpeed = 1f;
     [SerializeField]
     private float dirY;
     Rigidbody2D rb;
 
+    [Header("Animator")]
     private bool facingRight = true;
     private SpriteRenderer sr;
-
-    BoxCollider2D bc;
-    public float crouchPercentOfHeight = 0.5f;
-    public bool IsCrouching;
-    private Vector2 standColliderSize;
-    private Vector2 crouchColliderSize;
-
-
     public Animator animator;
+
+    [Header("Crouching")]
+    public bool IsCrouching;
+    public BoxCollider2D bc2D;
+    public float crouchPercentOfHeightVertical = 0.5f;
+    public float crouchPercentOfHeightHorizontal = 2;
+    public float crouchPercentOfHeightOffset = -0.25f;
+    private Vector2 standColliderSize;
+    private Vector2 standColliderOffset;
+    private Vector2 crouchColliderOffset;
+    private Vector2 crouchColliderSize;
 
     public bool ClimbingAllowed { get; set; }
 
@@ -51,12 +59,12 @@ public class RefinedMovement : MonoBehaviour
         extraJumps = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        bc = GetComponent<BoxCollider2D>();
+        bc2D = GetComponent<BoxCollider2D>();
 
-        standColliderSize = bc.size;
-
-        crouchColliderSize = new Vector2(standColliderSize.x, standColliderSize.y * crouchPercentOfHeight);
-
+        standColliderSize = bc2D.size;
+        standColliderOffset = bc2D.offset;
+        crouchColliderSize = new Vector2(2, standColliderSize.y * crouchPercentOfHeightVertical); // The x may need to be changed based on size of final design
+        crouchColliderOffset = new Vector2(standColliderOffset.x, -0.25f); //The y may need to be changed based on size of final design
     }
 
     // Update is called once per frame
@@ -130,23 +138,9 @@ public class RefinedMovement : MonoBehaviour
             rb.AddForce(new Vector2(-moveSpeed, 0));
         }
         Flip();
+        Stand();
+        Crouch();
 
-        /*
-        if (Input.GetKeyDown(KeyCode.LeftShift)) //Crouching
-        {
-            
-            IsCrouching = true;
-            bc.size = crouchColliderSize;
-            Debug.Log(IsCrouching);
-        }
-        else{ IsCrouching = false; }
-
-        if (IsCrouching == true)
-        {
-            Debug.Log(IsCrouching);
-            bc.size = standColliderSize;
-        }
-        */
     }
 
 
@@ -177,6 +171,9 @@ public class RefinedMovement : MonoBehaviour
             rb.gravityScale = 1;
             rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
         }
+
+  
+
     }
 
     public bool IsGrounded()
@@ -186,5 +183,29 @@ public class RefinedMovement : MonoBehaviour
         return grounded;
     }
 
-  
+    private void Crouch()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            
+            IsCrouching = true;
+            Debug.Log(IsCrouching);
+            bc2D.size = crouchColliderSize;
+            bc2D.offset = crouchColliderOffset;
+        }
+    }
+
+    private void Stand()
+    {
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            IsCrouching = true;
+            bc2D.size = standColliderSize;
+            bc2D.offset = standColliderOffset;
+        }
+    }
 }
+  
+
+
+
