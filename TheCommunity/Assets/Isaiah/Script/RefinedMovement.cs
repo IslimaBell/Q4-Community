@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RefinedMovement : MonoBehaviour
 {
-    
-    
+
+
     float coyoteRemember = 0;[Header("Jump")]
     [SerializeField]
     float coyoteTime = 0.25f;
@@ -25,7 +25,7 @@ public class RefinedMovement : MonoBehaviour
     private float jumpPower = 1f;
 
     private float horizontal;
-    
+
     [Header("Move")]
     [SerializeField]
     private float moveSpeed = 1f;
@@ -63,7 +63,7 @@ public class RefinedMovement : MonoBehaviour
 
         standColliderSize = bc2D.size;
         standColliderOffset = bc2D.offset;
-        crouchColliderSize = new Vector2(2, standColliderSize.y * crouchPercentOfHeightVertical); // The x may need to be changed based on size of final design
+        crouchColliderSize = new Vector2(standColliderSize.x * 2, standColliderSize.y * crouchPercentOfHeightVertical); // The x may need to be changed based on size of final design
         crouchColliderOffset = new Vector2(standColliderOffset.x, -0.25f); //The y may need to be changed based on size of final design
     }
 
@@ -71,20 +71,23 @@ public class RefinedMovement : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Jump") && IsGrounded() == true && extraJumps > 0) // Jump
+        if (Input.GetButtonDown("Jump") && IsGrounded() == true && IsCrouching == false && extraJumps > 0 ) // Jump
         {
+            Debug.Log("Jump1");
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             extraJumps--;
         }
 
-        if (Input.GetButtonDown("Jump") && IsGrounded() == false && extraJumps > 1)
+        if (Input.GetButtonDown("Jump") && IsGrounded() == false && IsCrouching == false && extraJumps > 1 )
         {
+            Debug.Log("Jump2");
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             extraJumps--;
         }
 
-        if (Input.GetButtonUp("Jump")) //Jump cut
+        if (Input.GetButtonUp("Jump") && IsCrouching == false) //Jump cut
         {
+            Debug.Log("Jump3");
             if (rb.velocity.y > 0)
             {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCut);
@@ -103,8 +106,9 @@ public class RefinedMovement : MonoBehaviour
         }
 
         jumpStorage -= Time.deltaTime;
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && IsCrouching == false)
         {
+            Debug.Log("Jump4");
             jumpStorage = jumpStorageTime;
         }
 
@@ -136,6 +140,7 @@ public class RefinedMovement : MonoBehaviour
         {
             //sr.flipX = true;
             rb.AddForce(new Vector2(-moveSpeed, 0));
+                
         }
         Flip();
         Stand();
@@ -187,9 +192,8 @@ public class RefinedMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            
             IsCrouching = true;
-            Debug.Log(IsCrouching);
+            moveSpeed = moveSpeed * 0.5f;
             bc2D.size = crouchColliderSize;
             bc2D.offset = crouchColliderOffset;
         }
@@ -199,7 +203,8 @@ public class RefinedMovement : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            IsCrouching = true;
+            IsCrouching = false;
+            moveSpeed = moveSpeed * 2f;
             bc2D.size = standColliderSize;
             bc2D.offset = standColliderOffset;
         }
