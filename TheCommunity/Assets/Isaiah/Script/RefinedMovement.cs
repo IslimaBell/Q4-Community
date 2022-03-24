@@ -51,7 +51,10 @@ public class RefinedMovement : MonoBehaviour
 
     public bool ClimbingAllowed { get; set; }
 
-    
+    public bool HidingAllowed { get; set; }
+    public bool Hiding;
+  
+
 
     // Start is called before the first frame update
     void Start()
@@ -126,21 +129,48 @@ public class RefinedMovement : MonoBehaviour
 
         }
 
-        horizontal = Input.GetAxisRaw("Horizontal"); //Movement
+        if(HidingAllowed && Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) //Hiding
+        {
+            Physics2D.IgnoreLayerCollision(9, 10, true);
+            sr.sortingOrder = 0;
+            Hiding = true;
+            Debug.Log(Hiding);
+        }
+        else if(HidingAllowed && Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            Physics2D.IgnoreLayerCollision(9, 10, false);
+            sr.sortingOrder = 1;
+            Hiding = false;
+        }
+        
+
+        if(Hiding == false)
+        {
+            horizontal = Input.GetAxisRaw("Horizontal");
+        }
+        else if(Hiding == true)
+        {
+
+            transform.position = HideableObject.postion;
+            
+        }
+         //Movement
         //Debug.Log(horizontal);
         //Move right
-        if (Input.GetAxis("Horizontal") > 0)
+        if (Input.GetAxis("Horizontal") > 0 && Hiding == false)
         {
             //sr.flipX = false;
             rb.AddForce(new Vector2(moveSpeed, 0));
+            
         }
 
         //Move left
-        if (Input.GetAxis("Horizontal") < 0)
+        if (Input.GetAxis("Horizontal") < 0 && Hiding == false)
         {
             //sr.flipX = true;
             rb.AddForce(new Vector2(-moveSpeed, 0));
-                
+            
+
         }
         Flip();
         Stand();
