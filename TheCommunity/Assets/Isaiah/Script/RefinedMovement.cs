@@ -122,21 +122,21 @@ public class RefinedMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
 
-        if (ClimbingAllowed) // Climbing
+        if (ClimbingAllowed == true) // Climbing
         {
 
             dirY = Input.GetAxisRaw("Vertical") * moveSpeed;
 
         }
 
-        if(HidingAllowed && Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) //Hiding
+        if(HidingAllowed == true && Input.GetKeyDown(KeyCode.F)) //Hiding
         {
             Physics2D.IgnoreLayerCollision(9, 10, true);
             sr.sortingOrder = 0;
             Hiding = true;
             Debug.Log(Hiding);
         }
-        else if(HidingAllowed && Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
+        else if(HidingAllowed == true && Input.GetKeyUp(KeyCode.F))
         {
             Physics2D.IgnoreLayerCollision(9, 10, false);
             sr.sortingOrder = 1;
@@ -151,7 +151,7 @@ public class RefinedMovement : MonoBehaviour
         else if(Hiding == true)
         {
 
-            transform.position = HideableObject.postion;
+            horizontal = 0;
             
         }
          //Movement

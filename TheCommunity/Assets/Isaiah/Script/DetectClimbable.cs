@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectObject : MonoBehaviour
+public class DetectClimbable : MonoBehaviour
 {
     [SerializeField]
     private RefinedMovement player;
@@ -14,11 +14,6 @@ public class DetectObject : MonoBehaviour
         {
             player.ClimbingAllowed = true;
         }
-
-        if (collision.GetComponent<HideableObject>())
-        {
-            player.HidingAllowed = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -26,11 +21,6 @@ public class DetectObject : MonoBehaviour
         if (collision.GetComponent<VineScript>())
         {
             player.ClimbingAllowed = false;
-        }
-
-        if (collision.GetComponent<HideableObject>())
-        {
-            player.HidingAllowed = true;
         }
     }
 
