@@ -81,21 +81,21 @@ public class RefinedMovement : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Jump") && IsGrounded() == true && IsCrouching == false && extraJumps > 0 ) // Jump
+        if (Input.GetButtonDown("Jump") && IsGrounded() == true && IsCrouching == false && extraJumps > 0 && Hiding == false) // Jump
         {
             Debug.Log("Jump1");
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             extraJumps--;
         }
 
-        if (Input.GetButtonDown("Jump") && IsGrounded() == false && IsCrouching == false && extraJumps > 1 )
+        if (Input.GetButtonDown("Jump") && IsGrounded() == false && IsCrouching == false && extraJumps > 1 && Hiding == false)
         {
             Debug.Log("Jump2");
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             extraJumps--;
         }
 
-        if (Input.GetButtonUp("Jump") && IsCrouching == false) //Jump cut
+        if (Input.GetButtonUp("Jump") && IsCrouching == false && Hiding == false) //Jump cut
         {
             Debug.Log("Jump3");
             if (rb.velocity.y > 0)
@@ -116,7 +116,7 @@ public class RefinedMovement : MonoBehaviour
         }
 
         jumpStorage -= Time.deltaTime;
-        if (Input.GetButtonDown("Jump") && IsCrouching == false)
+        if (Input.GetButtonDown("Jump") && IsCrouching == false && Hiding == false)
         {
             Debug.Log("Jump4");
             jumpStorage = jumpStorageTime;
@@ -237,7 +237,7 @@ public class RefinedMovement : MonoBehaviour
 
     private void Crouch()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Hiding == false)
         {
             IsCrouching = true;
             moveSpeed = moveSpeed * 0.5f;
@@ -248,7 +248,7 @@ public class RefinedMovement : MonoBehaviour
 
     private void Stand()
     {
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetKeyUp(KeyCode.LeftShift) && Hiding == false)
         {
             IsCrouching = false;
             moveSpeed = moveSpeed * 2f;
