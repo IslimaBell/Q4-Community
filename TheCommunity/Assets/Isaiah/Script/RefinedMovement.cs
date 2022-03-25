@@ -30,12 +30,17 @@ public class RefinedMovement : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 1f;
     [SerializeField]
+    private float origionalSpeed = 1f;
+    [SerializeField]
     private float dirY;
     Rigidbody2D rb;
 
-    [Header("Animator")]
+    private float runSpeed;
+    
     private bool facingRight = true;
     private SpriteRenderer sr;
+    
+    [Header("Animator")]
     public Animator animator;
 
     [Header("Crouching")]
@@ -68,6 +73,8 @@ public class RefinedMovement : MonoBehaviour
         standColliderOffset = bc2D.offset;
         crouchColliderSize = new Vector2(standColliderSize.x * 2, standColliderSize.y * crouchPercentOfHeightVertical); // The x may need to be changed based on size of final design
         crouchColliderOffset = new Vector2(standColliderOffset.x, -0.25f); //The y may need to be changed based on size of final design
+
+        runSpeed = moveSpeed * 1.5f;
     }
 
     // Update is called once per frame
@@ -170,7 +177,17 @@ public class RefinedMovement : MonoBehaviour
             //sr.flipX = true;
             rb.AddForce(new Vector2(-moveSpeed, 0));
             
+        }
 
+        //Running
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            Debug.Log("Run");
+            moveSpeed = runSpeed;
+        }
+        else if(Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            moveSpeed = origionalSpeed;
         }
         Flip();
         Stand();

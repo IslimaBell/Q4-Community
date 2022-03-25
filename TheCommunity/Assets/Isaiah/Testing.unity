@@ -815,6 +815,7 @@ MonoBehaviour:
     m_Bits: 256
   jumpPower: 5
   moveSpeed: 5
+  origionalSpeed: 5
   dirY: 0
   animator: {fileID: 1728135670}
   IsCrouching: 0
