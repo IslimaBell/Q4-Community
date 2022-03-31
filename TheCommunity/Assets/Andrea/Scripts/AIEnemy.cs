@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class AIEnemy : MonoBehaviour
 {
+
+    [SerializeField]
+    private RefinedMovement playerhide;
+
+
     [SerializeField]
     Transform player;
 
