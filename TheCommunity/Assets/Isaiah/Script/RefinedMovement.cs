@@ -184,6 +184,11 @@ public class RefinedMovement : MonoBehaviour
         {
             Debug.Log("Run");
             moveSpeed = runSpeed;
+            while (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                SraminaScript.instance.UseStamina(15);
+            }
+            
         }
         else if(Input.GetKeyUp(KeyCode.LeftControl))
         {
