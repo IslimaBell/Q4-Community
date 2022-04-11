@@ -71,7 +71,7 @@ public class RefinedMovement : MonoBehaviour
 
         standColliderSize = bc2D.size;
         standColliderOffset = bc2D.offset;
-        crouchColliderSize = new Vector2(standColliderSize.x * 2, standColliderSize.y * crouchPercentOfHeightVertical); // The x may need to be changed based on size of final design
+        crouchColliderSize = new Vector2(standColliderSize.x * crouchPercentOfHeightHorizontal, standColliderSize.y * crouchPercentOfHeightVertical); // The x may need to be changed based on size of final design
         crouchColliderOffset = new Vector2(standColliderOffset.x, -0.25f); //The y may need to be changed based on size of final design
 
         runSpeed = moveSpeed * 1.5f;
