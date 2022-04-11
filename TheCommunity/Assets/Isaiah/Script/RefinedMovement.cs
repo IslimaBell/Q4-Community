@@ -36,6 +36,7 @@ public class RefinedMovement : MonoBehaviour
     Rigidbody2D rb;
 
     private float runSpeed;
+    public bool isRunning;
     
     private bool facingRight = true;
     private SpriteRenderer sr;
@@ -180,19 +181,22 @@ public class RefinedMovement : MonoBehaviour
         }
 
         //Running
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) && SraminaScript.instance.staminaBar.value >= 50)
         {
             Debug.Log("Run");
             moveSpeed = runSpeed;
-            while (Input.GetKeyDown(KeyCode.LeftControl))
-            {
-                SraminaScript.instance.UseStamina(15);
-            }
+            isRunning = true;
+            //while (isRunning == true)
+            //{
+                SraminaScript.instance.UseStamina(50);
+                //new WaitForSeconds(0.1f);
+            //}
             
         }
         else if(Input.GetKeyUp(KeyCode.LeftControl))
         {
             moveSpeed = origionalSpeed;
+            isRunning = false;
         }
         Flip();
         Stand();
