@@ -7,8 +7,8 @@ public class SraminaScript : MonoBehaviour
 {
     public Slider staminaBar;
 
-    private int maxStamina = 100;
-    private int currentStamina;
+    private float maxStamina = 100;
+    private float currentStamina;
 
     public static SraminaScript instance;
 
@@ -26,7 +26,7 @@ public class SraminaScript : MonoBehaviour
         staminaBar.value = maxStamina;
     }
 
-    public void UseStamina(int amount)
+    public void UseStamina(float amount)
     {
         if(currentStamina - amount >= 0)
         {

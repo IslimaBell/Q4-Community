@@ -37,6 +37,7 @@ public class RefinedMovement : MonoBehaviour
 
     private float runSpeed;
     public bool isRunning;
+    public int keyCount;
     
     private bool facingRight = true;
     private SpriteRenderer sr;
@@ -81,24 +82,28 @@ public class RefinedMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKey(KeyCode.O))
+        {
+            keyCount++;
+            Debug.Log("+");
+        }
         if (Input.GetButtonDown("Jump") && IsGrounded() == true && IsCrouching == false && extraJumps > 0 && Hiding == false) // Jump
         {
-            Debug.Log("Jump1");
+            //Debug.Log("Jump1");
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             extraJumps--;
         }
 
         if (Input.GetButtonDown("Jump") && IsGrounded() == false && IsCrouching == false && extraJumps > 1 && Hiding == false)
         {
-            Debug.Log("Jump2");
+            //Debug.Log("Jump2");
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             extraJumps--;
         }
 
         if (Input.GetButtonUp("Jump") && IsCrouching == false && Hiding == false) //Jump cut
         {
-            Debug.Log("Jump3");
+            //Debug.Log("Jump3");
             if (rb.velocity.y > 0)
             {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCut);
@@ -119,7 +124,7 @@ public class RefinedMovement : MonoBehaviour
         jumpStorage -= Time.deltaTime;
         if (Input.GetButtonDown("Jump") && IsCrouching == false && Hiding == false)
         {
-            Debug.Log("Jump4");
+            //Debug.Log("Jump4");
             jumpStorage = jumpStorageTime;
         }
 
@@ -162,8 +167,8 @@ public class RefinedMovement : MonoBehaviour
             horizontal = 0;
             
         }
-         //Movement
-        //Debug.Log(horizontal);
+         
+        //Movement
         //Move right
         if (Input.GetAxis("Horizontal") > 0 && Hiding == false)
         {
@@ -179,24 +184,24 @@ public class RefinedMovement : MonoBehaviour
             rb.AddForce(new Vector2(-moveSpeed, 0));
             
         }
-
+                
         //Running
-        if (Input.GetKeyDown(KeyCode.LeftControl) && SraminaScript.instance.staminaBar.value >= 50)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && SraminaScript.instance.staminaBar.value >= 10)
         {
             Debug.Log("Run");
             moveSpeed = runSpeed;
             isRunning = true;
-            //while (isRunning == true)
-            //{
-                SraminaScript.instance.UseStamina(50);
-                //new WaitForSeconds(0.1f);
-            //}
-            
+                        
         }
-        else if(Input.GetKeyUp(KeyCode.LeftControl))
+        else if(Input.GetKeyUp(KeyCode.LeftControl) || SraminaScript.instance.staminaBar.value <= 1)
         {
             moveSpeed = origionalSpeed;
             isRunning = false;
+        }
+        
+        if(Input.GetKey(KeyCode.LeftControl))
+        {
+                SraminaScript.instance.UseStamina(0.1f);
         }
         Flip();
         Stand();
