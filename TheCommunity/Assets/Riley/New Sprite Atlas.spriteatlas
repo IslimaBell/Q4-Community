@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+    - {fileID: 2800000, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -8719269226486404176, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: -1822676536138380600, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: -1596269234030713890, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: 2941524222291316104, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: 8698789249287080404, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: 7732002161675724099, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: 7153850084726541398, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: -2745325927208134518, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: 2804892638315193564, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: -8863771403598801627, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: 3344209487322033475, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: 7092331782964489027, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: 1972814935581333258, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: 1058332739130090215, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: 3709963028120498648, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+  - {fileID: -1510211944668464340, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: -4003643253722858362, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: 4557637293843122793, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: 5519683881976047913, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: 3922832130296891059, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: 323035693960096164, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: 3305565825113062636, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: 2064685505847484429, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: -6876299151130085295, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: 206886878639152880, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: -388490705084806033, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: 4346240287302710687, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: -2448329638121533577, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: 7795496793876017354, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  - {fileID: -8919365697097958604, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - PixelatedStuff-1.png_10
+  - PixelatedStuff-1.png_11
+  - PixelatedStuff-1.png_12
+  - PixelatedStuff-1.png_13
+  - PixelatedStuff-1.png_14
+  - PixelatedStuff-1.png_1
+  - PixelatedStuff-1.png_0
+  - PixelatedStuff-1.png_3
+  - PixelatedStuff-1.png_2
+  - PixelatedStuff-1.png_5
+  - PixelatedStuff-1.png_4
+  - PixelatedStuff-1.png_7
+  - PixelatedStuff-1.png_6
+  - PixelatedStuff-1.png_9
+  - PixelatedStuff-1.png_8
+  - PixelatedStuff-2.png (1)_13
+  - PixelatedStuff-2.png (1)_12
+  - PixelatedStuff-2.png (1)_11
+  - PixelatedStuff-2.png (1)_10
+  - PixelatedStuff-2.png (1)_14
+  - PixelatedStuff-2.png (1)_8
+  - PixelatedStuff-2.png (1)_9
+  - PixelatedStuff-2.png (1)_0
+  - PixelatedStuff-2.png (1)_1
+  - PixelatedStuff-2.png (1)_2
+  - PixelatedStuff-2.png (1)_3
+  - PixelatedStuff-2.png (1)_4
+  - PixelatedStuff-2.png (1)_5
+  - PixelatedStuff-2.png (1)_6
+  - PixelatedStuff-2.png (1)_7
+  m_Tag: New Sprite Atlas
+  m_IsVariant: 0
