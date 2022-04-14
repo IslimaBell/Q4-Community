@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RefinedMovement : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class RefinedMovement : MonoBehaviour
     
     [Header("Animator")]
     public Animator animator;
+    public Animator vingetteAni;
 
     [Header("Crouching")]
     public bool IsCrouching;
@@ -58,8 +60,14 @@ public class RefinedMovement : MonoBehaviour
 
     public bool ClimbingAllowed { get; set; }
 
+    
     public bool HidingAllowed { get; set; }
+
+    [Header("Hiding Stuff")]
     public bool Hiding;
+    public float OpacityValue = 0.0f;
+    public CanvasGroup vingetteOpacity;
+    public GameObject vingette;
   
 
 
@@ -148,12 +156,18 @@ public class RefinedMovement : MonoBehaviour
             sr.sortingOrder = 0;
             Hiding = true;
             Debug.Log(Hiding);
+            vingette.SetActive(true); 
+            vingetteAni.SetBool("IsHiding", true);
+
         }
         else if(HidingAllowed == true && Input.GetKeyUp(KeyCode.F))
         {
             Physics2D.IgnoreLayerCollision(9, 10, false);
             sr.sortingOrder = 1;
             Hiding = false;
+            vingetteAni.SetBool("IsHiding", false); // Make this a slider for the opacity so people like riley can't interupt the animation
+            StartCoroutine(VingetteAnimation());
+            //vingette.SetActive(false);
         }
         
 
@@ -269,6 +283,21 @@ public class RefinedMovement : MonoBehaviour
             bc2D.size = standColliderSize;
             bc2D.offset = standColliderOffset;
         }
+    }
+
+    private IEnumerator VingetteAnimation()
+    {
+        if(Hiding == true)
+        {
+
+        }
+
+        if(Hiding == false)
+        {
+            yield return new WaitForSeconds(1f);       
+            vingette.SetActive(false);   
+        }
+                  
     }
 }
   

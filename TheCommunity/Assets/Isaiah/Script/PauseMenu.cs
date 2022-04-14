@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseGame : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
 
     public bool gamePaused = false;
@@ -50,6 +50,6 @@ public class PauseGame : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("JScene");
+        SceneManager.LoadScene("MainMenu");
     }
 }
