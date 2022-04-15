@@ -65,8 +65,10 @@ public class RefinedMovement : MonoBehaviour
 
     [Header("Hiding Stuff")]
     public bool Hiding;
-    public float OpacityValue = 0.0f;
-    public CanvasGroup vingetteOpacity;
+    public float MaxOpacity = 255f;
+    public float CurrentOpacity;
+    public float startingOpacity = 0.0f;
+    public Image vingetteOpacity;
     public GameObject vingette;
   
 
@@ -85,17 +87,17 @@ public class RefinedMovement : MonoBehaviour
         crouchColliderOffset = new Vector2(standColliderOffset.x, -0.25f); //The y may need to be changed based on size of final design
 
         runSpeed = moveSpeed * 1.5f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.O))
-        {
-            keyCount++;
-            Debug.Log("+");
-        }
-        if (Input.GetButtonDown("Jump") && IsGrounded() == true && IsCrouching == false && extraJumps > 0 && Hiding == false) // Jump
+        //Opacity for vingette
+        
+        
+        //Jump
+        if (Input.GetButtonDown("Jump") && IsGrounded() == true && IsCrouching == false && extraJumps > 0 && Hiding == false)
         {
             //Debug.Log("Jump1");
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
@@ -109,7 +111,8 @@ public class RefinedMovement : MonoBehaviour
             extraJumps--;
         }
 
-        if (Input.GetButtonUp("Jump") && IsCrouching == false && Hiding == false) //Jump cut
+        //JumpCut
+        if (Input.GetButtonUp("Jump") && IsCrouching == false && Hiding == false)
         {
             //Debug.Log("Jump3");
             if (rb.velocity.y > 0)
@@ -143,21 +146,24 @@ public class RefinedMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
 
-        if (ClimbingAllowed == true) // Climbing
+        //Climbing
+        if (ClimbingAllowed == true)
         {
 
             dirY = Input.GetAxisRaw("Vertical") * moveSpeed;
 
         }
 
-        if(HidingAllowed == true && Input.GetKeyDown(KeyCode.F)) //Hiding
+        //Hiding
+        if(HidingAllowed == true && Input.GetKeyDown(KeyCode.F))
         {
             Physics2D.IgnoreLayerCollision(9, 10, true);
             sr.sortingOrder = 0;
             Hiding = true;
             Debug.Log(Hiding);
-            vingette.SetActive(true); 
-            vingetteAni.SetBool("IsHiding", true);
+            vingette.SetActive(true);
+            //StartCoroutine(VingetteAnimation());
+            //vingetteAni.SetBool("IsHiding", true);
 
         }
         else if(HidingAllowed == true && Input.GetKeyUp(KeyCode.F))
@@ -166,7 +172,7 @@ public class RefinedMovement : MonoBehaviour
             sr.sortingOrder = 1;
             Hiding = false;
             vingetteAni.SetBool("IsHiding", false); // Make this a slider for the opacity so people like riley can't interupt the animation
-            StartCoroutine(VingetteAnimation());
+            
             //vingette.SetActive(false);
         }
         
@@ -220,7 +226,7 @@ public class RefinedMovement : MonoBehaviour
         Flip();
         Stand();
         Crouch();
-
+        StartCoroutine(VingetteAnimation());
     }
 
 
@@ -285,20 +291,30 @@ public class RefinedMovement : MonoBehaviour
         }
     }
 
+    
     private IEnumerator VingetteAnimation()
     {
         if(Hiding == true)
         {
-
+            while(Input.GetKey(KeyCode.F) && CurrentOpacity < MaxOpacity)
+                {
+                    CurrentOpacity += 0.00001f;
+                    vingetteOpacity.color = new Color(0, 0, 0, CurrentOpacity);
+                    yield return CurrentOpacity;
+            }
         }
 
-        if(Hiding == false)
+        if (Hiding == false)
         {
-            yield return new WaitForSeconds(1f);       
-            vingette.SetActive(false);   
+            while (CurrentOpacity > 0)
+            {
+                CurrentOpacity -= 0.00001f;
+                vingetteOpacity.color = new Color(0, 0, 0, CurrentOpacity);
+                yield return CurrentOpacity;
+            }
         }
-                  
     }
+    
 }
   
 
