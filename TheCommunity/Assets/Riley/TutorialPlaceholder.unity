@@ -18386,6 +18386,8 @@ MonoBehaviour:
   YChange: 3
   TagToActivate: Player
   deletesSelf: 1
+  EventFlipsX: 0
+  EventFlipsY: 0
 --- !u!1 &724885685
 GameObject:
   m_ObjectHideFlags: 0
@@ -87196,7 +87198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c798c5b73a90b7542a825181b721428e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 3
+  SceneNumber: 4
 --- !u!61 &1168769485
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -87492,7 +87494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c798c5b73a90b7542a825181b721428e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneNumber: 3
+  SceneNumber: 4
 --- !u!61 &1529452880
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -87625,6 +87627,8 @@ MonoBehaviour:
   YChange: 0
   TagToActivate: Player
   deletesSelf: 1
+  EventFlipsX: 0
+  EventFlipsY: 0
 --- !u!61 &1552335218
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -87790,6 +87794,8 @@ MonoBehaviour:
   YChange: 4
   TagToActivate: Enemy
   deletesSelf: 1
+  EventFlipsX: 0
+  EventFlipsY: 0
 --- !u!61 &1669267013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -88503,9 +88509,9 @@ GameObject:
   - component: {fileID: 1989313801}
   - component: {fileID: 1989313800}
   - component: {fileID: 1989313799}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: FriendQuestionMark
-  m_TagString: Enemy
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -21,7 +21,7 @@ public class BasicSceneTransfer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(SceneNumber);
+        if(collision.gameObject.tag=="Player") SceneManager.LoadScene(SceneNumber);
     }
 
 }
