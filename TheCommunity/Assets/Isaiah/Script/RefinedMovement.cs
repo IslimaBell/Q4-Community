@@ -70,6 +70,7 @@ public class RefinedMovement : MonoBehaviour
     public float startingOpacity = 0.0f;
     public Image vingetteOpacity;
     public GameObject vingette;
+    public GameObject hideIndicator;
   
 
 
@@ -162,6 +163,7 @@ public class RefinedMovement : MonoBehaviour
             Hiding = true;
             Debug.Log(Hiding);
             vingette.SetActive(true);
+            hideIndicator.SetActive(false);
             //StartCoroutine(VingetteAnimation());
             //vingetteAni.SetBool("IsHiding", true);
 
@@ -171,8 +173,7 @@ public class RefinedMovement : MonoBehaviour
             Physics2D.IgnoreLayerCollision(9, 10, false);
             sr.sortingOrder = 1;
             Hiding = false;
-            vingetteAni.SetBool("IsHiding", false); // Make this a slider for the opacity so people like riley can't interupt the animation
-            
+            vingetteAni.SetBool("IsHiding", false); // Make this a slider for the opacity so people like riley can't interupt the animation           
             //vingette.SetActive(false);
         }
         
