@@ -134,12 +134,18 @@ MonoBehaviour:
   isRunning: 0
   keyCount: 0
   animator: {fileID: 1355273625243290145}
+  vingetteAni: {fileID: 0}
   IsCrouching: 0
   bc2D: {fileID: 1355273625243290136}
   crouchPercentOfHeightVertical: 0.5
   crouchPercentOfHeightHorizontal: 1
   crouchPercentOfHeightOffset: -0.5
   Hiding: 0
+  MaxOpacity: 255
+  CurrentOpacity: 0
+  startingOpacity: 0
+  vingetteOpacity: {fileID: 0}
+  vingette: {fileID: 0}
 --- !u!61 &1355273625243290136
 BoxCollider2D:
   m_ObjectHideFlags: 0
