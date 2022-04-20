@@ -1,69 +1,74 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIEnemy : MonoBehaviour
+public class AI : MonoBehaviour
 {
-
-    [SerializeField]
-    private RefinedMovement playerhide;
-
-
+    public const int Time = 12000;
     [SerializeField]
     Transform player;
 
     [SerializeField]
-    float agroRange;
+    float agrorange;
 
     [SerializeField]
     float moveSpeed;
 
     Rigidbody2D rb;
+
+    [SerializeField]
+    Transform CastPoint;
+    public bool isAgro;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Distance to player
+        Vector2 endPos = CastPoint.position + Vector3.right * agrorange;
+        Debug.DrawLine(CastPoint.position, endPos, Color.blue);
         float distToPlayer = Vector2.Distance(transform.position, player.position);
-        //print("distToPlayer:" + distToPlayer);
-
-        if(distToPlayer > agroRange)
+        
+        if(distToPlayer < agrorange)
         {
-            // chasing
+            isAgro = true;
             ChasePlayer();
         }
         else
         {
-            //stop chasing
-            StopChasing();
+            if (isAgro)
+            {
+                Invoke("StopChasing", Time);
+            }
         }
+
     }
 
-    private void StopChasing()
+    void ChasePlayer()
     {
         if(transform.position.x < player.position.x)
         {
             rb.velocity = new Vector2(moveSpeed, 0);
-            transform.localScale = new Vector2(1, 1);
+            transform.localScale = new Vector2(1, 2);
         }
         else
         {
             rb.velocity = new Vector2(-moveSpeed, 0);
-            transform.localScale = new Vector2(-1, 1);
-
+            transform.localScale = new Vector2(-1, 2);
         }
-       
     }
 
-    private void ChasePlayer()
+    void StopChasing()
     {
-        rb.velocity = Vector2.zero;
+        isAgro = false;
+        rb.velocity = Vector2.zero; 
     }
 }
