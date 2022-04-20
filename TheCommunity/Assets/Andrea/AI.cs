@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AI : MonoBehaviour
 {
-    public const int Time = 120f;
+    public const int Time = 120;
     [SerializeField]
     Transform player;
 
@@ -33,9 +33,7 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 endPos = CastPoint.position + Vector3.right * agrorange;
-        Debug.DrawLine(CastPoint.position, endPos, Color.blue);
-        float distToPlayer = Vector2.Distance(transform.position, player.position);
+       /* float distToPlayer = Vector2.Distance(transform.position, player.position);
         
         if(distToPlayer < agrorange)
         {
@@ -47,28 +45,12 @@ public class AI : MonoBehaviour
             if (isAgro)
             {
                 Invoke("StopChasing", Time);
+                isAgro = false;
             }
         }
+        */
+
 
     }
-
-    void ChasePlayer()
-    {
-        if(transform.position.x < player.position.x)
-        {
-            rb.velocity = new Vector2(moveSpeed, 0);
-            transform.localScale = new Vector2(1, 2);
-        }
-        else
-        {
-            rb.velocity = new Vector2(-moveSpeed, 0);
-            transform.localScale = new Vector2(-1, 2);
-        }
-    }
-
-    void StopChasing()
-    {
-        isAgro = false;
-        rb.velocity = Vector2.zero; 
-    }
+     
 }
