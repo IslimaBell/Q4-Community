@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AI : MonoBehaviour
 {
-    public const int Time = 120f;
+    public const int Time = 120;
     [SerializeField]
     Transform player;
 
