@@ -15,6 +15,7 @@ public class DetectHideable : MonoBehaviour
             if(other.tag == "Hide")
             {
                 player.HidingAllowed = true;
+                player.hideIndicator.SetActive(true);
             }
             
         }
@@ -27,6 +28,7 @@ public class DetectHideable : MonoBehaviour
             if(other.tag == "Hide")
             {
                 player.HidingAllowed = false;
+                player.hideIndicator.SetActive(false);
             }
             
         }
