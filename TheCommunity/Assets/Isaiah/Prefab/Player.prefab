@@ -156,8 +156,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   jumpPower: 5
-  moveSpeed: 4.5
-  origionalSpeed: 4.5
+  moveSpeed: 3
+  origionalSpeed: 3
   dirY: 0
   isRunning: 0
   keyCount: 0
