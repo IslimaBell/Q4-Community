@@ -309,7 +309,7 @@ public class RefinedMovement : MonoBehaviour
         {
             while (CurrentOpacity > 0)
             {
-                CurrentOpacity -= 0.00001f;
+                CurrentOpacity -= 0.0001f;
                 vingetteOpacity.color = new Color(0, 0, 0, CurrentOpacity);
                 yield return CurrentOpacity;
             }
