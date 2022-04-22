@@ -5727,6 +5727,16 @@ PrefabInstance:
       propertyPath: vingetteOpacity
       value: 
       objectReference: {fileID: 910758770}
+    - target: {fileID: 516857576238254211, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
+        type: 3}
+      propertyPath: crouchPercentOfHeightOffset
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 516857576238254211, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
+        type: 3}
+      propertyPath: crouchPercentOfHeightHorizontal
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 516857576238254215, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
       propertyPath: m_RootOrder

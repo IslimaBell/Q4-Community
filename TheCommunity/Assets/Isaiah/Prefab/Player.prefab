@@ -166,7 +166,7 @@ MonoBehaviour:
   IsCrouching: 0
   bc2D: {fileID: 0}
   crouchPercentOfHeightVertical: 0.5
-  crouchPercentOfHeightHorizontal: 0.5
+  crouchPercentOfHeightHorizontal: 4
   crouchPercentOfHeightOffset: -0.5
   Hiding: 0
   MaxOpacity: 2
