@@ -51,8 +51,8 @@ public class RefinedMovement : MonoBehaviour
     public bool IsCrouching;
     public BoxCollider2D bc2D;
     public float crouchPercentOfHeightVertical = 0.5f;
-    public float crouchPercentOfHeightHorizontal = 2;
-    public float crouchPercentOfHeightOffset = -0.25f;
+    public float crouchPercentOfHeightHorizontal = 1f;
+    public float crouchPercentOfHeightOffset = -0.5f;
     private Vector2 standColliderSize;
     private Vector2 standColliderOffset;
     private Vector2 crouchColliderOffset;
@@ -84,8 +84,8 @@ public class RefinedMovement : MonoBehaviour
 
         standColliderSize = bc2D.size;
         standColliderOffset = bc2D.offset;
-        crouchColliderSize = new Vector2(9.9f, 3); // The x may need to be changed based on size of final design
-        crouchColliderOffset = new Vector2(standColliderOffset.x, -3.6f); //The y may need to be changed based on size of final design
+        crouchColliderSize = new Vector2(standColliderSize.x + 1, standColliderSize.y * crouchPercentOfHeightVertical); // The x may need to be changed based on size of final design
+        crouchColliderOffset = new Vector2(standColliderOffset.x, standColliderOffset.y + crouchPercentOfHeightOffset); //The y may need to be changed based on size of final design
 
         runSpeed = moveSpeed * 1.5f;
 
