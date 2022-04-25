@@ -72,6 +72,7 @@ SpriteAtlas:
   - {fileID: -3847191423321439543, guid: f8a951133a7ace14ebefb984843767a3, type: 3}
   - {fileID: 7611756083719292669, guid: f8a951133a7ace14ebefb984843767a3, type: 3}
   - {fileID: -4941366337954572618, guid: f8a951133a7ace14ebefb984843767a3, type: 3}
+  - {fileID: 21300000, guid: ea2b8905198fbf644865b458875f91ee, type: 3}
   - {fileID: 860713455359970146, guid: c25d9f081c74efa468b1db4403389439, type: 3}
   - {fileID: 7572061970887496803, guid: c25d9f081c74efa468b1db4403389439, type: 3}
   - {fileID: 21300000, guid: cc7a4e484d560544ba80d8487002950c, type: 3}
@@ -116,6 +117,7 @@ SpriteAtlas:
   - WallTileMap_3
   - WallTileMap_0
   - WallTileMap_1
+  - Floor-Night
   - PictureFrameUseable_0
   - PictureFrameUseable_1
   - Floor

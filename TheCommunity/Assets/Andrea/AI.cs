@@ -1,40 +1,61 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CodeMonkey.Utils;
 
 public class AI : MonoBehaviour
 {
 
-    //private EnemyPathfindingMovement pathfindingMovement;
-    private Vector3 startingPosition;
-    private Vector3 roamPosition;
+    public float speed;
+    public Transform target;
+    public float MaxDistance;
+    public Transform[] patrolPoints;
+    public float waitTime;
+    public int currentPointIndex;
+    bool once = false;
 
-    private void Awake()
-    {
-        //pathfindingMovement = GetComponent < EnemyPathfindingMovement();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        startingPosition = transform.position;
-        roamPosition = GetRoamingPosition();
-    }
-
-
-
-    private Vector3 GetRoamingPosition()
-    {
-       return startingPosition + UtilsClass.GetRandomDir() * Random.Range(10f, 70f);
-    }
-
-    // Update is called once per frame
     private void Update()
     {
-        //pathfindingMovement.MoveTo(roamPosition);
-        float reachedPositionDistance = 1f;
-        if (Vector3.Distance(transform.position,roamPosition) < reachedPositionDistance){
+        if (Vector2.Distance(transform.position, target.position) < MaxDistance)
+        {
+            Debug.Log("Chasing");
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
         }
-    } 
+        else if (transform.position != patrolPoints[currentPointIndex].position)
+        {
+
+            Debug.Log("Movement");
+            transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPointIndex].position, speed * Time.deltaTime);
+        }
+        else if (once == false)
+        {
+            
+            //{
+            Debug.Log("once");
+            once = true;
+            StartCoroutine(Wait());
+            //}
+
+        }
+        
+    }
+
+    IEnumerator Wait()
+    {
+        Debug.Log("Active");
+        yield return new WaitForSeconds(waitTime);
+        Debug.Log("Passed");
+        if (currentPointIndex +1 < patrolPoints.Length)
+        {
+            currentPointIndex++;
+            Debug.Log("Movin");
+        }
+        else
+        {
+            currentPointIndex = 0;
+            //currentPointIndex--;
+        }
+        once = false;
+    }
+
 }
