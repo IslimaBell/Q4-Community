@@ -42,13 +42,13 @@ SpriteAtlas:
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 59c7725d1b41a7449964bdcfbe0160d7, type: 3}
+    - {fileID: 2800000, guid: 8b811a34dbb13e248bcce5d9d34c2e4c, type: 3}
     - {fileID: 2800000, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
     - {fileID: 2800000, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
     - {fileID: 2800000, guid: cc7a4e484d560544ba80d8487002950c, type: 3}
     - {fileID: 2800000, guid: ea2b8905198fbf644865b458875f91ee, type: 3}
     - {fileID: 2800000, guid: 91b550577b5367c489c2f317de006f98, type: 3}
-    - {fileID: 2800000, guid: 8b811a34dbb13e248bcce5d9d34c2e4c, type: 3}
+    - {fileID: 2800000, guid: 2c5bd4ba1de86804181e65c0a6c59c9b, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -71,10 +71,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ea2b8905198fbf644865b458875f91ee, type: 3}
   - {fileID: 21300000, guid: 91b550577b5367c489c2f317de006f98, type: 3}
   - {fileID: 21300000, guid: cc7a4e484d560544ba80d8487002950c, type: 3}
-  - {fileID: 7491346462547463839, guid: 59c7725d1b41a7449964bdcfbe0160d7, type: 3}
-  - {fileID: -3847191423321439543, guid: 59c7725d1b41a7449964bdcfbe0160d7, type: 3}
-  - {fileID: 7611756083719292669, guid: 59c7725d1b41a7449964bdcfbe0160d7, type: 3}
-  - {fileID: -4941366337954572618, guid: 59c7725d1b41a7449964bdcfbe0160d7, type: 3}
+  - {fileID: -7130244307969925706, guid: 2c5bd4ba1de86804181e65c0a6c59c9b, type: 3}
+  - {fileID: 6284439679757903695, guid: 2c5bd4ba1de86804181e65c0a6c59c9b, type: 3}
+  - {fileID: -8105332595812147, guid: 2c5bd4ba1de86804181e65c0a6c59c9b, type: 3}
+  - {fileID: -2732291851487937018, guid: 2c5bd4ba1de86804181e65c0a6c59c9b, type: 3}
   - {fileID: -1510211944668464340, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
   - {fileID: -4003643253722858362, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
   - {fileID: 4557637293843122793, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
@@ -110,10 +110,10 @@ SpriteAtlas:
   - Floor-Night
   - Trashcan
   - Floor
-  - WallTileMap_2
-  - WallTileMap_3
-  - WallTileMap_0
-  - WallTileMap_1
+  - WallTileMapFixederester_2
+  - WallTileMapFixederester_3
+  - WallTileMapFixederester_0
+  - WallTileMapFixederester_1
   - PixelatedStuff-2.png (1)_13
   - PixelatedStuff-2.png (1)_12
   - PixelatedStuff-2.png (1)_11
