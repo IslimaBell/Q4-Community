@@ -12,9 +12,28 @@ public class AI : MonoBehaviour
     public float waitTime;
     public int currentPointIndex;
     bool once = false;
+    Rigidbody2D rb;
+    [SerializeField]
+    private float jumpPower = 1f;
+    bool canJump;
+    bool canClimb = false;
+    [SerializeField]
+    private float dirY;
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     private void Update()
     {
+        if(canClimb)
+        {
+            rb.gravityScale = 0;
+        }
+        else
+        {
+            rb.gravityScale = 1;
+        }
         if (Vector2.Distance(transform.position, target.position) < MaxDistance)
         {
             Debug.Log("Chasing");
@@ -29,7 +48,7 @@ public class AI : MonoBehaviour
         }
         else if (once == false)
         {
-            
+
             //{
             Debug.Log("once");
             once = true;
@@ -37,7 +56,7 @@ public class AI : MonoBehaviour
             //}
 
         }
-        
+
     }
 
     IEnumerator Wait()
@@ -45,7 +64,7 @@ public class AI : MonoBehaviour
         Debug.Log("Active");
         yield return new WaitForSeconds(waitTime);
         Debug.Log("Passed");
-        if (currentPointIndex +1 < patrolPoints.Length)
+        if (currentPointIndex + 1 < patrolPoints.Length)
         {
             currentPointIndex++;
             Debug.Log("Movin");
@@ -56,6 +75,32 @@ public class AI : MonoBehaviour
             //currentPointIndex--;
         }
         once = false;
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Obstical")
+        {
+            canJump = true;
+            rb.AddForce(Vector2.up * jumpPower);
+
+
+        }
+        if (other.tag == "Ladder")
+        {
+
+            if (other.GetComponent<VineScript>())
+            {
+                canClimb = true;
+
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<VineScript>())
+        {
+            canClimb = false;
+        }
     }
 
 }
