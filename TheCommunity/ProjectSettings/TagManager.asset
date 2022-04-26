@@ -7,8 +7,11 @@ TagManager:
   - Hide
   - Climb
   - Enemy
+  - PatrolPoint
   - TurnRight
   - TurnLeft
+  - Ground
+  - Obstical
   layers:
   - Default
   - TransparentFX
