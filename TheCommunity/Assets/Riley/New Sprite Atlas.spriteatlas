@@ -35,21 +35,21 @@ SpriteAtlas:
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
-      padding: 4
+      padding: 2
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
-      enableTightPacking: 1
+      enableTightPacking: 0
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
+    - {fileID: 102900000, guid: 522cf46c0997b4d47b570a7731b7b488, type: 3}
     - {fileID: 2800000, guid: cf34ad8f91085d54e89c694467b9bce8, type: 3}
-    - {fileID: 2800000, guid: f8a951133a7ace14ebefb984843767a3, type: 3}
+    - {fileID: 2800000, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
     - {fileID: 2800000, guid: 59c7725d1b41a7449964bdcfbe0160d7, type: 3}
-    - {fileID: 2800000, guid: cc7a4e484d560544ba80d8487002950c, type: 3}
     - {fileID: 2800000, guid: eb71d02a01a265040a61d6886a72855f, type: 3}
     - {fileID: 2800000, guid: c25d9f081c74efa468b1db4403389439, type: 3}
     - {fileID: 2800000, guid: ea2b8905198fbf644865b458875f91ee, type: 3}
+    - {fileID: 2800000, guid: cc7a4e484d560544ba80d8487002950c, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -68,10 +68,7 @@ SpriteAtlas:
   - {fileID: 1972814935581333258, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
   - {fileID: 1058332739130090215, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
   - {fileID: 3709963028120498648, guid: e544c18083760cf47a7316c0d6bd79af, type: 3}
-  - {fileID: 7491346462547463839, guid: f8a951133a7ace14ebefb984843767a3, type: 3}
-  - {fileID: -3847191423321439543, guid: f8a951133a7ace14ebefb984843767a3, type: 3}
-  - {fileID: 7611756083719292669, guid: f8a951133a7ace14ebefb984843767a3, type: 3}
-  - {fileID: -4941366337954572618, guid: f8a951133a7ace14ebefb984843767a3, type: 3}
+  - {fileID: 21300000, guid: ea2b8905198fbf644865b458875f91ee, type: 3}
   - {fileID: 860713455359970146, guid: c25d9f081c74efa468b1db4403389439, type: 3}
   - {fileID: 7572061970887496803, guid: c25d9f081c74efa468b1db4403389439, type: 3}
   - {fileID: 21300000, guid: cc7a4e484d560544ba80d8487002950c, type: 3}
@@ -112,10 +109,7 @@ SpriteAtlas:
   - PixelatedStuff-1.png_6
   - PixelatedStuff-1.png_9
   - PixelatedStuff-1.png_8
-  - WallTileMap_2
-  - WallTileMap_3
-  - WallTileMap_0
-  - WallTileMap_1
+  - Floor-Night
   - PictureFrameUseable_0
   - PictureFrameUseable_1
   - Floor
