@@ -109,6 +109,13 @@ SpriteAtlas:
   - PixelatedStuff-1.png_6
   - PixelatedStuff-1.png_9
   - PixelatedStuff-1.png_8
+<<<<<<< HEAD
+=======
+  - WallTileMap_2
+  - WallTileMap_3
+  - WallTileMap_0
+  - WallTileMap_1
+>>>>>>> 2c47b22ec75b762f93827051c381244151ca2d37
   - Floor-Night
   - PictureFrameUseable_0
   - PictureFrameUseable_1

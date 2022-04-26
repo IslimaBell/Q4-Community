@@ -7,6 +7,8 @@ TagManager:
   - Hide
   - Climb
   - Enemy
+  - TurnRight
+  - TurnLeft
   layers:
   - Default
   - TransparentFX
