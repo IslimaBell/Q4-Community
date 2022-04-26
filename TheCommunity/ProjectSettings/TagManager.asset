@@ -12,6 +12,7 @@ TagManager:
   - TurnLeft
   - Ground
   - Obstical
+  - Ladder
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,9 @@ public class AI : MonoBehaviour
     [SerializeField]
     private float jumpPower = 1f;
     bool canJump;
-    bool canClimb;
+    bool canClimb = false;
+    [SerializeField]
+    private float dirY;
 
     private void Start()
     {
@@ -24,6 +26,14 @@ public class AI : MonoBehaviour
     }
     private void Update()
     {
+        if(canClimb)
+        {
+            rb.gravityScale = 0;
+        }
+        else
+        {
+            rb.gravityScale = 1;
+        }
         if (Vector2.Distance(transform.position, target.position) < MaxDistance)
         {
             Debug.Log("Chasing");
@@ -68,16 +78,29 @@ public class AI : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag== "Obstical")
+        if (other.tag == "Obstical")
         {
             canJump = true;
             rb.AddForce(Vector2.up * jumpPower);
-           
-            
+
+
         }
-        if(other.tag == "Ladder")
+        if (other.tag == "Ladder")
         {
-            canClimb = true;
+
+            if (other.GetComponent<VineScript>())
+            {
+                canClimb = true;
+
+            }
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<VineScript>())
+        {
+            canClimb = false;
+        }
+    }
+
 }
