@@ -90,13 +90,7 @@ public class AI : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Obstical")
-        {
-            canJump = true;
-            rb.AddForce(Vector2.up * jumpPower);
 
-
-        }
         if (other.tag == "Ladder")
         {
 
@@ -114,5 +108,14 @@ public class AI : MonoBehaviour
             canClimb = false;
         }
     }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+                if (other.gameObject.tag == "Obstical")
+        {
+            canJump = true;
+            rb.AddForce(Vector2.up * jumpPower);
 
+
+        }
+    }
 }
