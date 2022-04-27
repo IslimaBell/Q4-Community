@@ -71,7 +71,10 @@ public class RefinedMovement : MonoBehaviour
     public Image vingetteOpacity;
     public GameObject vingette;
     public GameObject hideIndicator;
-  
+
+    [Header("SoundEffects")]
+    public AudioSource jumpSound;
+
 
 
     // Start is called before the first frame update
@@ -101,6 +104,7 @@ public class RefinedMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded() == true && IsCrouching == false && extraJumps > 0 && Hiding == false)
         {
             //Debug.Log("Jump1");
+            //jumpSound.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             extraJumps--;
         }
@@ -108,6 +112,7 @@ public class RefinedMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded() == false && IsCrouching == false && extraJumps > 1 && Hiding == false)
         {
             //Debug.Log("Jump2");
+            //jumpSound.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             extraJumps--;
         }
@@ -116,6 +121,7 @@ public class RefinedMovement : MonoBehaviour
         if (Input.GetButtonUp("Jump") && IsCrouching == false && Hiding == false)
         {
             //Debug.Log("Jump3");
+            //jumpSound.Play();
             if (rb.velocity.y > 0)
             {
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCut);
@@ -137,6 +143,7 @@ public class RefinedMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsCrouching == false && Hiding == false)
         {
             //Debug.Log("Jump4");
+            jumpSound.Play();
             jumpStorage = jumpStorageTime;
         }
 
