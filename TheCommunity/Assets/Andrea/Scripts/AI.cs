@@ -19,6 +19,8 @@ public class AI : MonoBehaviour
     bool canClimb = false;
     [SerializeField]
     private float dirY;
+    [SerializeField]
+    private RefinedMovement player;
 
     private void Start()
     {
@@ -34,18 +36,28 @@ public class AI : MonoBehaviour
         {
             rb.gravityScale = 1;
         }
+
         if (Vector2.Distance(transform.position, target.position) < MaxDistance)
         {
-            Debug.Log("Chasing");
-            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            player.Hiding = false;
+
+            if (player.Hiding == false)
+            {
+                Debug.Log("Chasing");
+                transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                
+            }
+
 
         }
+
         else if (transform.position != patrolPoints[currentPointIndex].position)
         {
 
             Debug.Log("Movement");
             transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPointIndex].position, speed * Time.deltaTime);
         }
+
         else if (once == false)
         {
 
