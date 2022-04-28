@@ -39,7 +39,6 @@ public class AI : MonoBehaviour
 
         if (Vector2.Distance(transform.position, target.position) < MaxDistance)
         {
-            player.Hiding = false;
 
             if (player.Hiding == false)
             {
@@ -91,7 +90,7 @@ public class AI : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.tag == "Ladder")
+        if (other.tag == "Climb")
         {
 
             if (other.GetComponent<VineScript>())
