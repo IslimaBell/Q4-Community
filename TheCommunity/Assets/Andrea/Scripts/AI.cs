@@ -37,10 +37,10 @@ public class AI : MonoBehaviour
             rb.gravityScale = 1;
         }
 
-        if (Vector2.Distance(transform.position, target.position) < MaxDistance)
+        if (player.Hiding == false)
         {
 
-            if (player.Hiding == false)
+            if (Vector2.Distance(transform.position, target.position) < MaxDistance)
             {
                 Debug.Log("Chasing");
                 transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
