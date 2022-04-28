@@ -99,22 +99,19 @@ public class AI : MonoBehaviour
 
             }
         }
+        if (other.gameObject.tag == "Obstical")
+        {
+            canJump = true;
+            rb.AddForce(Vector2.up * jumpPower);
+
+
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.GetComponent<VineScript>())
         {
             canClimb = false;
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-                if (other.gameObject.tag == "Obstical")
-        {
-            canJump = true;
-            rb.AddForce(Vector2.up * jumpPower);
-
-
         }
     }
 }
