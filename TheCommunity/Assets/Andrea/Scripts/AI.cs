@@ -21,10 +21,12 @@ public class AI : MonoBehaviour
     private float dirY;
     [SerializeField]
     private RefinedMovement player;
+    BoxCollider2D BC;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        BC = GetComponent<BoxCollider2D>();
     }
     private void Update()
     {
@@ -37,35 +39,22 @@ public class AI : MonoBehaviour
             rb.gravityScale = 1;
         }
 
-        if (player.Hiding == false)
+        if (player.Hiding == false && Vector2.Distance(transform.position, target.position) < MaxDistance)
         {
 
-            if (Vector2.Distance(transform.position, target.position) < MaxDistance)
-            {
+                BC.isTrigger = false;
                 Debug.Log("Chasing");
                 transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-                
-            }
+
+ 
 
 
         }
-
-        else if (transform.position != patrolPoints[currentPointIndex].position)
+        else// if (transform.position != patrolPoints[currentPointIndex].position)
         {
-
+            BC.isTrigger = true;
             Debug.Log("Movement");
             transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPointIndex].position, speed * Time.deltaTime);
-        }
-
-        else if (once == false)
-        {
-
-            //{
-            Debug.Log("once");
-            once = true;
-            StartCoroutine(Wait());
-            //}
-
         }
 
     }
