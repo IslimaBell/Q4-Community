@@ -73,9 +73,13 @@ public class RefinedMovement : MonoBehaviour
     public GameObject hideIndicator;
 
     [Header("SoundEffects")]
-    public AudioSource jumpSound;
+    public AudioSource jumpSound; 
+    public AudioSource normalTheme; 
+    public AudioSource chaseTheme; 
 
     private Vector3 spawnPoint;
+
+    public bool isBeingChasing;
 
 
 
@@ -186,7 +190,6 @@ public class RefinedMovement : MonoBehaviour
             //vingette.SetActive(false);
         }
         
-
         if(Hiding == false)
         {
             horizontal = Input.GetAxisRaw("Horizontal");
@@ -198,6 +201,18 @@ public class RefinedMovement : MonoBehaviour
             
         }
          
+        if(isBeingChasing == true)
+        {
+            Debug.Log("ChangingSongs");
+            normalTheme.Pause();
+            chaseTheme.Play();
+        }
+        else
+        {
+            normalTheme.Play();
+            chaseTheme.Pause();
+        }
+
         //Movement
         //Move right
         if (Input.GetAxis("Horizontal") > 0 && Hiding == false)
@@ -238,6 +253,8 @@ public class RefinedMovement : MonoBehaviour
         Crouch();
         StartCoroutine(VingetteAnimation());
     }
+
+    
 
     private void Flip()
     {
