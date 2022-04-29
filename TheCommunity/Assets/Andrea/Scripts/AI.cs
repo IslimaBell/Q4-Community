@@ -13,8 +13,6 @@ public class AI : MonoBehaviour
     public int currentPointIndex;
     bool once = false;
     public bool isChasing;
-    public AudioSource nomralTheme;
-    public AudioSource chaseTheme;
     Rigidbody2D rb;
     [SerializeField]
     private float jumpPower = 1f;
@@ -46,32 +44,31 @@ public class AI : MonoBehaviour
 
         if (player.Hiding == false && Vector2.Distance(transform.position, target.position) < MaxDistance)
         {
-
+            isChasing = true;
             enemy.enabled = true;
             Debug.Log("Chasing");
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-            bool isChasing = true;
+            
 
         }
         else if (transform.position != patrolPoints[currentPointIndex].position)
         {
+            isChasing = false;
             enemy.enabled = false;
             Debug.Log("Movement");
             transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPointIndex].position, speed * Time.deltaTime);
-            bool isChasing = false;
+            
 
         }
 
         if(isChasing == true)
         {
             Debug.Log("changing songs");
-            nomralTheme.Pause();
-            chaseTheme.Play();
+            player.isBeingChasing = true;
         }
         else
         {
-            nomralTheme.Play();
-            chaseTheme.Pause();
+            player.isBeingChasing = false;
         }
 
     }
