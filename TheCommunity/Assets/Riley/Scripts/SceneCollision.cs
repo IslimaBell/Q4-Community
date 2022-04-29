@@ -24,6 +24,7 @@ public class SceneCollision : MonoBehaviour
         {
 
             SceneManager.LoadScene(SceneNumber);
+            
         }
     }
 

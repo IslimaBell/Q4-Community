@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1926450096789850855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -11.52, y: -8.367, z: 0}
-  m_LocalScale: {x: 0.6897912, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 1926450098551056056}
   m_Father: {fileID: 0}
@@ -58,6 +58,9 @@ MonoBehaviour:
   - {fileID: 0}
   waitTime: 1
   currentPointIndex: 0
+  isChasing: 0
+  nomralTheme: {fileID: 0}
+  chaseTheme: {fileID: 0}
   jumpPower: 0.02
   dirY: 0
   player: {fileID: 0}

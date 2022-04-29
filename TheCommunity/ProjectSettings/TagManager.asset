@@ -13,6 +13,7 @@ TagManager:
   - Ground
   - Obstical
   - Ladder
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
