@@ -62,7 +62,7 @@ public class AI : MonoBehaviour
 
         }
 
-        if(isChasing = true)
+        if(isChasing == true)
         {
             Debug.Log("changing songs");
             nomralTheme.Pause();
