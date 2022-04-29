@@ -75,6 +75,8 @@ public class RefinedMovement : MonoBehaviour
     [Header("SoundEffects")]
     public AudioSource jumpSound;
 
+    private Vector3 spawnPoint;
+
 
 
     // Start is called before the first frame update
@@ -92,14 +94,14 @@ public class RefinedMovement : MonoBehaviour
 
         runSpeed = moveSpeed * 1.5f;
 
+        spawnPoint = transform.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Opacity for vingette
-        
-        
+              
         //Jump
         if (Input.GetButtonDown("Jump") && IsGrounded() == true && IsCrouching == false && extraJumps > 0 && Hiding == false)
         {
@@ -237,7 +239,6 @@ public class RefinedMovement : MonoBehaviour
         StartCoroutine(VingetteAnimation());
     }
 
-
     private void Flip()
     {
         if (facingRight && horizontal < 0f || !facingRight && horizontal > 0f)
@@ -266,8 +267,15 @@ public class RefinedMovement : MonoBehaviour
             rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
         }
 
-  
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Checkpoint")
+        {
+            spawnPoint = transform.position;
+            Debug.Log(transform.position);
+        }
     }
 
     public bool IsGrounded()

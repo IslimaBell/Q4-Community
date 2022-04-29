@@ -12,6 +12,9 @@ public class AI : MonoBehaviour
     public float waitTime;
     public int currentPointIndex;
     bool once = false;
+    public bool isChasing;
+    public AudioSource nomralTheme;
+    public AudioSource chaseTheme;
     Rigidbody2D rb;
     [SerializeField]
     private float jumpPower = 1f;
@@ -23,11 +26,13 @@ public class AI : MonoBehaviour
     private RefinedMovement player;
     [SerializeField]
     private SceneCollision enemy;
+    
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
     private void Update()
     {
         if(canClimb)
@@ -39,15 +44,13 @@ public class AI : MonoBehaviour
             rb.gravityScale = 1;
         }
 
-        if (player.Hiding == false && Vector2.Distance(transform.position, target.position) < MaxDistance && player.IsCrouching == false)
+        if (player.Hiding == false && Vector2.Distance(transform.position, target.position) < MaxDistance)
         {
 
-                enemy.enabled = true;
-                Debug.Log("Chasing");
-                transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
- 
-
+            enemy.enabled = true;
+            Debug.Log("Chasing");
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            bool isChasing = true;
 
         }
         else if (transform.position != patrolPoints[currentPointIndex].position)
@@ -55,7 +58,20 @@ public class AI : MonoBehaviour
             enemy.enabled = false;
             Debug.Log("Movement");
             transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPointIndex].position, speed * Time.deltaTime);
+            bool isChasing = false;
 
+        }
+
+        if(isChasing == true)
+        {
+            Debug.Log("changing songs");
+            nomralTheme.Pause();
+            chaseTheme.Play();
+        }
+        else
+        {
+            nomralTheme.Play();
+            chaseTheme.Pause();
         }
 
     }
