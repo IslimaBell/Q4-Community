@@ -39,7 +39,7 @@ public class AI : MonoBehaviour
             rb.gravityScale = 1;
         }
 
-        if (player.Hiding == false && Vector2.Distance(transform.position, target.position) < MaxDistance && player.IsCrouching == false)
+        if (player.Hiding == false && Vector2.Distance(transform.position, target.position) < MaxDistance)
         {
 
                 enemy.enabled = true;
