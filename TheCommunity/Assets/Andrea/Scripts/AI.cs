@@ -24,11 +24,13 @@ public class AI : MonoBehaviour
     private RefinedMovement player;
     [SerializeField]
     private SceneCollision enemy;
-    
+    private Vector3 spawnPoint;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spawnPoint = transform.position;
+
     }
 
     private void Update()
@@ -70,7 +72,16 @@ public class AI : MonoBehaviour
         {
             player.isBeingChasing = false;
         }
+        if (player.isDead == true)
+        {
+            StartCoroutine(respawn());
+        }
+    }
 
+    private IEnumerator respawn()
+    {
+        yield return new WaitForSeconds(1);
+        transform.position = spawnPoint;
     }
 
     IEnumerator Wait()
