@@ -79,7 +79,13 @@ public class RefinedMovement : MonoBehaviour
 
     private Vector3 spawnPoint;
 
+    [Header("Music")]
     public bool isBeingChasing;
+
+    [Header("Death")]
+    public bool isDead = false;
+    public GameObject gameOverPanel;
+    
 
 
 
@@ -201,6 +207,7 @@ public class RefinedMovement : MonoBehaviour
             
         }
          
+        //Music Change
         if(isBeingChasing == true)
         {
             Debug.Log("ChangingSongs");
@@ -209,7 +216,7 @@ public class RefinedMovement : MonoBehaviour
         }
         else
         {
-            normalTheme.Play();
+            normalTheme.UnPause();
             chaseTheme.Pause();
         }
 
@@ -252,6 +259,12 @@ public class RefinedMovement : MonoBehaviour
         Stand();
         Crouch();
         StartCoroutine(VingetteAnimation());
+
+        if(isDead == true)
+        {
+            gameOverPanel.SetActive(true);
+            StartCoroutine(Dead());
+        }
     }
 
     
@@ -286,6 +299,7 @@ public class RefinedMovement : MonoBehaviour
 
     }
 
+    //Checkpoint
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Checkpoint")
@@ -322,6 +336,13 @@ public class RefinedMovement : MonoBehaviour
             bc2D.size = standColliderSize;
             bc2D.offset = standColliderOffset;
         }
+    }
+
+    private IEnumerator Dead()
+    {
+        yield return new WaitForSeconds(1);
+        transform.position = spawnPoint;
+        isDead = false;
     }
 
     
