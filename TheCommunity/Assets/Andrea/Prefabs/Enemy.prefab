@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1926450096789850852}
+  Enemy: {fileID: 1926450096789850872}
 --- !u!58 &1926450096789850879
 CircleCollider2D:
   m_ObjectHideFlags: 0
