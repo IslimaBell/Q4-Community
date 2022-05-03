@@ -15,9 +15,19 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void MainMenuBad()
+    {
+        SceneManager.LoadScene("MainMenuBad");
+    }
+
     public void Credits()
     {
         SceneManager.LoadScene("Credits");
+    }
+
+    public void CreditsBad()
+    {
+        SceneManager.LoadScene("CreditsForBadTitle");
     }
 
     public void QuitGame()

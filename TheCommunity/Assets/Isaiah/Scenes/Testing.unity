@@ -6229,25 +6229,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3517362383507172361}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1875698657
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875698653}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9ab05139618810944a6a6c133301e2fc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1955441637
 GameObject:
   m_ObjectHideFlags: 0
@@ -7204,14 +7185,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1875698653, guid: bba74ae1546a9504c90970926ea033a2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1875698655, guid: bba74ae1546a9504c90970926ea033a2, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3517362382879043307, guid: bba74ae1546a9504c90970926ea033a2,
         type: 3}
       propertyPath: m_AnchorMax.x
