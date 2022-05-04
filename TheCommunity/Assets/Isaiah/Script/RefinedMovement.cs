@@ -114,6 +114,7 @@ public class RefinedMovement : MonoBehaviour
     void Update()
     {
         //Music Change
+        /*
         if(isBeingChasing == true)
         {
             Debug.Log("ChasingTheme");
@@ -126,6 +127,7 @@ public class RefinedMovement : MonoBehaviour
             normalTheme.UnPause();
             chaseTheme.Pause();
         }
+        */
 
         //Jump
         if (Input.GetButtonDown("Jump") && IsGrounded() == true && IsCrouching == false && extraJumps > 0 && Hiding == false)
