@@ -111,7 +111,20 @@ public class RefinedMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-              
+        //Music Change
+        if(isBeingChasing == true)
+        {
+            Debug.Log("ChasingTheme");
+            normalTheme.Pause();
+            chaseTheme.UnPause();
+        }
+        else if(isBeingChasing == false)
+        {
+            Debug.Log("Normal");
+            normalTheme.UnPause();
+            chaseTheme.Pause();
+        }
+
         //Jump
         if (Input.GetButtonDown("Jump") && IsGrounded() == true && IsCrouching == false && extraJumps > 0 && Hiding == false)
         {
@@ -207,18 +220,7 @@ public class RefinedMovement : MonoBehaviour
             
         }
          
-        //Music Change
-        if(isBeingChasing == true)
-        {
-            Debug.Log("ChangingSongs");
-            normalTheme.Pause();
-            chaseTheme.Play();
-        }
-        else
-        {
-            normalTheme.UnPause();
-            chaseTheme.Pause();
-        }
+       
 
         //Movement
         //Move right
@@ -352,7 +354,7 @@ public class RefinedMovement : MonoBehaviour
         {
             while(Input.GetKey(KeyCode.F) && CurrentOpacity < MaxOpacity)
                 {
-                    CurrentOpacity += 0.00001f;
+                    CurrentOpacity += 0.0001f;
                     vingetteOpacity.color = new Color(0, 0, 0, CurrentOpacity);
                     yield return CurrentOpacity;
             }

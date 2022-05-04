@@ -26,10 +26,15 @@ public class AI : MonoBehaviour
     private SceneCollision enemy;
     private Vector3 spawnPoint;
 
+    public GameObject enemyPrefab;
+    public GameObject[] enemys;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spawnPoint = transform.position;
+
+        enemys = GameObject.FindGameObjectsWithTag("enemy");
 
     }
 
@@ -46,36 +51,50 @@ public class AI : MonoBehaviour
 
         if (player.Hiding == false && Vector2.Distance(transform.position, target.position) < MaxDistance)
         {
-            isChasing = true;
+             foreach (GameObject enemy in enemys)
+            {
+                isChasing = true;
+                player.isBeingChasing = true;
+            }
+            //player.isBeingChasing = true;
             enemy.enabled = true;
-            Debug.Log("Chasing");
+            
+            //Debug.Log("Chasing");
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
             
 
         }
         else if (transform.position != patrolPoints[currentPointIndex].position)
         {
+            //Debug.Log("NotChasing");
             isChasing = false;
+            //player.isBeingChasing = false;
             enemy.enabled = false;
-            Debug.Log("Movement");
+            //Debug.Log("Movement");
             transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPointIndex].position, speed * Time.deltaTime);
             
 
         }
 
+        
         if(isChasing == true)
-        {
+        {          
             Debug.Log("changing songs");
             player.isBeingChasing = true;
         }
-        else
+        else if(isChasing == false)
         {
+            Debug.Log("NotChasing");
             player.isBeingChasing = false;
         }
+        
+
         if (player.isDead == true)
         {
             StartCoroutine(respawn());
         }
+
+        
     }
 
     private IEnumerator respawn()
@@ -101,6 +120,7 @@ public class AI : MonoBehaviour
         }
         once = false;
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -128,4 +148,5 @@ public class AI : MonoBehaviour
             canClimb = false;
         }
     }
+
 }
