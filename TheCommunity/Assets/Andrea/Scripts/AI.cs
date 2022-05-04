@@ -58,11 +58,11 @@ public class AI : MonoBehaviour
 
             if (distance.x > 0)
             {
-                self.localScale = new Vector3 (1.3f, 1.3f, 1);
+                self.localScale = new Vector3 (-1.3f, 1.3f, 1);
             }
             else
             {
-                self.localScale = new Vector3(-1.3f, 1.3f, 1);
+                self.localScale = new Vector3(1.3f, 1.3f, 1);
             }
             isChasing = true;
 
