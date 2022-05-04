@@ -23,8 +23,7 @@ public class AI : MonoBehaviour
     private float dirY;
     [SerializeField]
     private RefinedMovement player;
-    [SerializeField]
-    private SceneCollision enemy;
+
     private Vector3 spawnPoint;
     private Vector3 distance;
 
