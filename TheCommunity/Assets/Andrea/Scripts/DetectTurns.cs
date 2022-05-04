@@ -10,6 +10,7 @@ public class DetectTurns : MonoBehaviour
     [SerializeField]
     private SpriteRenderer Enemy;
 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -18,7 +19,7 @@ public class DetectTurns : MonoBehaviour
         {
             if (other.tag == "TurnRight")
             {
-                Enemy.flipX = true;
+                enemy.self.localScale = new Vector3(-1.3f, 1.3f, 1);
                 flipped = true;
                 enemy.currentPointIndex = 1;
             }
@@ -28,8 +29,8 @@ public class DetectTurns : MonoBehaviour
         {
             if (other.tag == "TurnLeft")
             {
-                Enemy.flipX = false;
-                flipped = false;
+                enemy.self.localScale = new Vector3(1.3f, 1.3f, 1);
+                flipped = true;
                 enemy.currentPointIndex = 0;
             }
 
