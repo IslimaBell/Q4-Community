@@ -19,7 +19,7 @@ public class DetectTurns : MonoBehaviour
         {
             if (other.tag == "TurnRight")
             {
-                enemy.self.localScale = new Vector3(1.3f, 1.3f, 1);
+                enemy.self.localScale = new Vector3(-1.3f, 1.3f, 1);
                 flipped = true;
                 enemy.currentPointIndex = 1;
             }
@@ -29,7 +29,7 @@ public class DetectTurns : MonoBehaviour
         {
             if (other.tag == "TurnLeft")
             {
-                enemy.self.localScale = new Vector3(-1.3f, 1.3f, 1);
+                enemy.self.localScale = new Vector3(1.3f, 1.3f, 1);
                 flipped = true;
                 enemy.currentPointIndex = 0;
             }
