@@ -72,7 +72,7 @@ public class AI : MonoBehaviour
             }
             //player.isBeingChasing = true;
 
-            enemy.enabled = true;
+       
             
             //Debug.Log("Chasing");
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
@@ -84,7 +84,6 @@ public class AI : MonoBehaviour
             //Debug.Log("NotChasing");
             isChasing = false;
             //player.isBeingChasing = false;
-            enemy.enabled = false;
             //Debug.Log("Movement");
             transform.position = Vector2.MoveTowards(transform.position, patrolPoints[currentPointIndex].position, speed * Time.deltaTime);
             
