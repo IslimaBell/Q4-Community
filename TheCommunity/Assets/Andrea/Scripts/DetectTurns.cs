@@ -29,6 +29,7 @@ public class DetectTurns : MonoBehaviour
             if (other.tag == "TurnLeft")
             {
                 Enemy.flipX = false;
+                flipped = false;
                 enemy.currentPointIndex = 0;
             }
 

@@ -53,7 +53,7 @@ public class AI : MonoBehaviour
 
         if (player.Hiding == false && Vector2.Distance(transform.position, target.position) < MaxDistance)
         {
-<<<<<<< HEAD
+
             distance = transform.position - target.position;
 
             if (distance.x > 0)
@@ -65,14 +65,14 @@ public class AI : MonoBehaviour
                 self.localScale = new Vector3(1.3f, 1.3f, 1);
             }
             isChasing = true;
-=======
+
              foreach (GameObject enemy in enemys)
             {
                 isChasing = true;
                 player.isBeingChasing = true;
             }
             //player.isBeingChasing = true;
->>>>>>> fd65058314e4da4af4a852f8b1040e3130c60d39
+
             enemy.enabled = true;
             
             //Debug.Log("Chasing");
