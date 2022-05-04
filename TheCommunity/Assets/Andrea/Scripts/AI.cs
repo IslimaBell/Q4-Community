@@ -7,6 +7,7 @@ public class AI : MonoBehaviour
 
     public float speed;
     public Transform target;
+    public Transform self;
     public float MaxDistance;
     public Transform[] patrolPoints;
     public float waitTime;
@@ -25,6 +26,7 @@ public class AI : MonoBehaviour
     [SerializeField]
     private SceneCollision enemy;
     private Vector3 spawnPoint;
+    private Vector3 distance;
 
     private void Start()
     {
@@ -46,6 +48,16 @@ public class AI : MonoBehaviour
 
         if (player.Hiding == false && Vector2.Distance(transform.position, target.position) < MaxDistance)
         {
+            distance = transform.position - target.position;
+
+            if (distance.x > 0)
+            {
+                self.localScale = new Vector3 (-1.3f, 1.3f, 1);
+            }
+            else
+            {
+                self.localScale = new Vector3(1.3f, 1.3f, 1);
+            }
             isChasing = true;
             enemy.enabled = true;
             Debug.Log("Chasing");

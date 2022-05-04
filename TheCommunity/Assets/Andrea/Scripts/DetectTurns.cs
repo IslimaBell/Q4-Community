@@ -6,7 +6,7 @@ public class DetectTurns : MonoBehaviour
 {
     [SerializeField]
     private AI enemy;
-
+    public bool flipped;
     [SerializeField]
     private SpriteRenderer Enemy;
 
@@ -19,6 +19,7 @@ public class DetectTurns : MonoBehaviour
             if (other.tag == "TurnRight")
             {
                 Enemy.flipX = true;
+                flipped = true;
                 enemy.currentPointIndex = 1;
             }
 
