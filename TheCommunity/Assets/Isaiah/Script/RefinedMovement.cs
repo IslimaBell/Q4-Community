@@ -49,6 +49,7 @@ public class RefinedMovement : MonoBehaviour
 
     [Header("Crouching")]
     public bool IsCrouching;
+    public float crouchSpeed;
     public BoxCollider2D bc2D;
     public float crouchPercentOfHeightVertical = 0.5f;
     public float crouchPercentOfHeightHorizontal = 2f;
@@ -103,6 +104,7 @@ public class RefinedMovement : MonoBehaviour
         crouchColliderOffset = new Vector2(standColliderOffset.x, standColliderOffset.y + crouchPercentOfHeightOffset); //The y may need to be changed based on size of final design
 
         runSpeed = moveSpeed * 1.5f;
+        crouchSpeed = moveSpeed * 0.5f;
 
         spawnPoint = transform.position;
 
@@ -240,20 +242,20 @@ public class RefinedMovement : MonoBehaviour
         }
                 
         //Running
-        if (Input.GetKeyDown(KeyCode.LeftControl) && SraminaScript.instance.staminaBar.value >= 10)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && SraminaScript.instance.staminaBar.value >= 10 && IsCrouching == false)
         {
             Debug.Log("Run");
             moveSpeed = runSpeed;
             isRunning = true;
                         
         }
-        else if(Input.GetKeyUp(KeyCode.LeftControl) || SraminaScript.instance.staminaBar.value <= 1)
+        else if(Input.GetKeyUp(KeyCode.LeftControl) || SraminaScript.instance.staminaBar.value <= 1 && IsCrouching == false)
         {
             moveSpeed = origionalSpeed;
             isRunning = false;
         }
         
-        if(Input.GetKey(KeyCode.LeftControl))
+        if(Input.GetKey(KeyCode.LeftControl) && IsCrouching == false)
         {
                 SraminaScript.instance.UseStamina(0.1f);
         }
@@ -323,7 +325,7 @@ public class RefinedMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && Hiding == false)
         {
             IsCrouching = true;
-            moveSpeed = moveSpeed * 0.5f;
+            moveSpeed = crouchSpeed;
             bc2D.size = crouchColliderSize;
             bc2D.offset = crouchColliderOffset;
         }
@@ -334,7 +336,7 @@ public class RefinedMovement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift) && Hiding == false)
         {
             IsCrouching = false;
-            moveSpeed = moveSpeed * 2f;
+            moveSpeed = origionalSpeed;
             bc2D.size = standColliderSize;
             bc2D.offset = standColliderOffset;
         }
