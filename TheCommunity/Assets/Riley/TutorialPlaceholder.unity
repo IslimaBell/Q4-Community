@@ -89959,22 +89959,22 @@ PrefabInstance:
     - target: {fileID: 516857576238254209, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.6
+      value: 0.38876104
       objectReference: {fileID: 0}
     - target: {fileID: 516857576238254209, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 1.9796884
       objectReference: {fileID: 0}
     - target: {fileID: 516857576238254209, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0
+      value: -0.0324983
       objectReference: {fileID: 0}
     - target: {fileID: 516857576238254209, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: -0.010155797
       objectReference: {fileID: 0}
     - target: {fileID: 516857576238254210, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
@@ -90019,17 +90019,17 @@ PrefabInstance:
     - target: {fileID: 516857576238254211, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
       propertyPath: crouchPercentOfHeightOffset
-      value: -0.5
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 516857576238254211, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
       propertyPath: crouchPercentOfHeightVertical
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 516857576238254211, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
       propertyPath: crouchPercentOfHeightHorizontal
-      value: 0.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 516857576238254215, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
@@ -90099,7 +90099,7 @@ PrefabInstance:
     - target: {fileID: 516857576238254218, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.6
+      value: 0.519747
       objectReference: {fileID: 0}
     - target: {fileID: 516857576238254218, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
@@ -90109,7 +90109,7 @@ PrefabInstance:
     - target: {fileID: 516857576238254218, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0
+      value: -0.013124831
       objectReference: {fileID: 0}
     - target: {fileID: 516857576238254218, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}

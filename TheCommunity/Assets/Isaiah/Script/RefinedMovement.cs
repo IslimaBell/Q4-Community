@@ -49,7 +49,7 @@ public class RefinedMovement : MonoBehaviour
 
     [Header("Crouching")]
     public bool IsCrouching;
-    public float crouchSpeed;
+    
     public BoxCollider2D bc2D;
     public float crouchPercentOfHeightVertical = 0.5f;
     public float crouchPercentOfHeightHorizontal = 2f;
@@ -58,6 +58,7 @@ public class RefinedMovement : MonoBehaviour
     private Vector2 standColliderOffset;
     private Vector2 crouchColliderOffset;
     private Vector2 crouchColliderSize;
+    public float crouchSpeed;
 
     public bool ClimbingAllowed { get; set; }
 
@@ -244,20 +245,20 @@ public class RefinedMovement : MonoBehaviour
         }
                 
         //Running
-        if (Input.GetKeyDown(KeyCode.LeftControl) && SraminaScript.instance.staminaBar.value >= 10 && IsCrouching == false)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && SraminaScript.instance.staminaBar.value >= 10)
         {
             Debug.Log("Run");
             moveSpeed = runSpeed;
             isRunning = true;
                         
         }
-        else if(Input.GetKeyUp(KeyCode.LeftControl) || SraminaScript.instance.staminaBar.value <= 1 && IsCrouching == false)
+        else if(Input.GetKeyUp(KeyCode.LeftControl) || SraminaScript.instance.staminaBar.value <= 1)
         {
             moveSpeed = origionalSpeed;
             isRunning = false;
         }
         
-        if(Input.GetKey(KeyCode.LeftControl) && IsCrouching == false)
+        if(Input.GetKey(KeyCode.LeftControl))
         {
                 SraminaScript.instance.UseStamina(0.1f);
         }

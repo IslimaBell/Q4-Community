@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 516857576238254215}
   - component: {fileID: 516857576238254214}
-  - component: {fileID: 516857576238254218}
   - component: {fileID: 516857576238254209}
+  - component: {fileID: 516857576238254218}
   - component: {fileID: 516857576238254208}
   - component: {fileID: 516857576238254211}
   - component: {fileID: 516857576238254212}
@@ -90,32 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &516857576238254218
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516857576238254210}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0017062724, y: -0.013557076}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.586, y: 2.094}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.44006532, y: 2.0387723}
-  m_EdgeRadius: 0
 --- !u!61 &516857576238254209
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -141,6 +115,32 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.36150575, y: 2.044792}
+  m_EdgeRadius: 0
+--- !u!61 &516857576238254218
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516857576238254210}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0017062724, y: -0.013557076}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.586, y: 2.094}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.44006532, y: 2.0387723}
   m_EdgeRadius: 0
 --- !u!50 &516857576238254208
 Rigidbody2D:
@@ -192,9 +192,10 @@ MonoBehaviour:
   vingetteAni: {fileID: 0}
   IsCrouching: 0
   bc2D: {fileID: 0}
-  crouchPercentOfHeightVertical: 0.5
+  crouchPercentOfHeightVertical: 0.4
   crouchPercentOfHeightHorizontal: 4
-  crouchPercentOfHeightOffset: -0.5
+  crouchPercentOfHeightOffset: -0.6
+  crouchSpeed: 0
   Hiding: 0
   MaxOpacity: 2
   CurrentOpacity: 0
