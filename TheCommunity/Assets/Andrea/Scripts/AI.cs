@@ -26,7 +26,7 @@ public class AI : MonoBehaviour
 
     private Vector3 spawnPoint;
     private Vector3 distance;
-
+    private Vector3 odistance;
     public GameObject enemyPrefab;
     public GameObject[] enemys;
 
@@ -81,6 +81,15 @@ public class AI : MonoBehaviour
         }
         else if (transform.position != patrolPoints[currentPointIndex].position)
         {
+            odistance = transform.position - patrolPoints[currentPointIndex].position;
+            if (odistance.x > 0)
+            {
+                self.localScale = new Vector3(-1.3f, 1.3f, 1);
+            }
+            else
+            {
+                self.localScale = new Vector3(1.3f, 1.3f, 1);
+            }
             //Debug.Log("NotChasing");
             isChasing = false;
             //player.isBeingChasing = false;
