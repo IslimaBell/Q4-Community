@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Isaiah/Scenes/MainMenu.unity
     guid: 747035b9d7b7b66479ed5f3143db0d1f
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  - enabled: 0
+    path: Assets/Isaiah/Scenes/Cutscene1.unity
+    guid: 2c0f89952cf228346bdaa05bf4fdd567
+>>>>>>> e6220a00ed15ee75cd6f8bb4c702d5de134d1131
+>>>>>>> cf71aa560764a7d6a9fc5093c3e811170b895556
   - enabled: 1
     path: Assets/Riley/TutorialPlaceholder.unity
     guid: 50ac9901a02fd464d9f90513b19f0b0c
