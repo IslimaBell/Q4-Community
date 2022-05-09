@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Isaiah/Scenes/MainMenu.unity
     guid: 747035b9d7b7b66479ed5f3143db0d1f
-  - enabled: 0
-    path: Assets/Isaiah/Scenes/Cutscene1.unity
-    guid: 2c0f89952cf228346bdaa05bf4fdd567
   - enabled: 1
     path: Assets/Riley/TutorialPlaceholder.unity
     guid: 50ac9901a02fd464d9f90513b19f0b0c
@@ -20,22 +17,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Isaiah/Scenes/CreditsForBadTitle.unity
     guid: f5eabbba385f6f94a883cdb501cd7192
-  - enabled: 0
-    path: Assets/Isaiah/Scenes/Custscene2.unity
-    guid: 13a0eea50ca449d4e9c59cc5eb4d9654
   - enabled: 1
     path: Assets/Isaiah/Scenes/MainMenuBad.unity
     guid: ab39eb675d9401b49bd405c449c6186d
   - enabled: 1
     path: Assets/Riley/LevelOneAttempt2.unity
     guid: dcf0af7cbe842d740a88c66d1c60ffe5
-  - enabled: 0
-    path: Assets/Isaiah/Scenes/Custscene3.unity
-    guid: 8cac29a9084e3c94a8e2f70a96eebb7a
   - enabled: 1
     path: Assets/Isaiah/Scenes/FinalCredits.unity
     guid: faa5f3554301e0e439ecd7a114f500c5
   - enabled: 0
     path: Assets/Riley/LevelOneTest.unity
     guid: bdae96cc63f0c684985605bc595fca37
+  - enabled: 0
+    path: Assets/Isaiah/Scenes/Cutscene1.unity
+    guid: 2c0f89952cf228346bdaa05bf4fdd567
+  - enabled: 0
+    path: Assets/Isaiah/Scenes/Custscene2.unity
+    guid: 13a0eea50ca449d4e9c59cc5eb4d9654
+  - enabled: 0
+    path: Assets/Isaiah/Scenes/Custscene3.unity
+    guid: 8cac29a9084e3c94a8e2f70a96eebb7a
   m_configObjects: {}
