@@ -102,12 +102,12 @@ public class AI : MonoBehaviour
         
         if(isChasing == true)
         {          
-            Debug.Log("changing songs");
+            //Debug.Log("changing songs");
             player.isBeingChasing = true;
         }
         else if(isChasing == false)
         {
-            Debug.Log("NotChasing");
+            //Debug.Log("NotChasing");
             player.isBeingChasing = false;
         }
         
