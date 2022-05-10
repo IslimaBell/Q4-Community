@@ -35,6 +35,7 @@ public class RefinedMovement : MonoBehaviour
     [SerializeField]
     private float dirY;
     Rigidbody2D rb;
+    public bool isMove;
 
     private float runSpeed;
     public bool isRunning;
@@ -161,6 +162,12 @@ public class RefinedMovement : MonoBehaviour
         if (IsGrounded() == true)
         {
             extraJumps = extraJumpsValue;
+            animator.SetBool("isJumping", false);
+        }
+
+        if (IsGrounded() == false)
+        {
+            animator.SetBool("isJumping", true);
         }
 
         coyoteRemember -= Time.deltaTime;
@@ -233,7 +240,15 @@ public class RefinedMovement : MonoBehaviour
         {
             //sr.flipX = false;
             rb.AddForce(new Vector2(moveSpeed, 0));
-            
+            animator.SetBool("isMoving", true);
+            isMove = true;
+            Debug.Log(isMove);
+
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+            isMove = false;
         }
 
         //Move left
@@ -241,7 +256,14 @@ public class RefinedMovement : MonoBehaviour
         {
             //sr.flipX = true;
             rb.AddForce(new Vector2(-moveSpeed, 0));
-            
+            animator.SetBool("isMoving", true);
+            isMove = true;
+
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+            isMove = false;
         }
                 
         //Running
@@ -272,6 +294,16 @@ public class RefinedMovement : MonoBehaviour
             gameOverPanel.SetActive(true);
             StartCoroutine(Dead());
         }
+
+        //Crawling Animation
+        if(IsCrouching == true && isMove == true)
+        {
+            animator.SetBool("isCrawling", true);
+        }
+        else
+        {
+            animator.SetBool("isCrawling", false);
+        }
     }
 
     
@@ -293,13 +325,13 @@ public class RefinedMovement : MonoBehaviour
 
         if (ClimbingAllowed) //Climbing
         {
-            //animator.SetBool("IsClimbing", true);
+            animator.SetBool("isClimbing", true);
             rb.gravityScale = 0;
             rb.velocity = new Vector2(horizontal * moveSpeed, dirY);
         }
         else
         {
-            //animator.SetBool("IsClimbing", false);
+            animator.SetBool("isClimbing", false);
             rb.gravityScale = 1;
             rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
         }
@@ -331,6 +363,7 @@ public class RefinedMovement : MonoBehaviour
             moveSpeed = crouchSpeed;
             bc2D.size = crouchColliderSize;
             bc2D.offset = crouchColliderOffset;
+            animator.SetBool("isCrouching", true);
         }
     }
 
@@ -342,8 +375,10 @@ public class RefinedMovement : MonoBehaviour
             moveSpeed = origionalSpeed;
             bc2D.size = standColliderSize;
             bc2D.offset = standColliderOffset;
+            animator.SetBool("isCrouching", false);
         }
     }
+
 
     private IEnumerator Dead()
     {
@@ -359,7 +394,7 @@ public class RefinedMovement : MonoBehaviour
         {
             while(Input.GetKey(KeyCode.F) && CurrentOpacity < MaxOpacity)
                 {
-                    CurrentOpacity += 0.0001f;
+                    CurrentOpacity += 0.001f;
                     vingetteOpacity.color = new Color(0, 0, 0, CurrentOpacity);
                     yield return CurrentOpacity;
             }
@@ -369,7 +404,7 @@ public class RefinedMovement : MonoBehaviour
         {
             while (CurrentOpacity > 0)
             {
-                CurrentOpacity -= 0.0001f;
+                CurrentOpacity -= 0.001f;
                 vingetteOpacity.color = new Color(0, 0, 0, CurrentOpacity);
                 yield return CurrentOpacity;
             }
