@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
+    [SerializeField]
+    private PresentationSize presentation;
+    [SerializeField]
+    private ComputerSize computer;
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -34,5 +38,16 @@ public class MenuScript : MonoBehaviour
     {
         Debug.Log("quit");
         Application.Quit();
+    }
+
+    public void Presentation()
+    {
+        presentation.pressedpres = true;
+        computer.pressedCom = false;
+    }
+    public void Computer()
+    {
+        presentation.pressedpres = false;
+        computer.pressedCom = true;
     }
 }
