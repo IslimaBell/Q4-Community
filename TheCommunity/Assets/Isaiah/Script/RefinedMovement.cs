@@ -245,14 +245,7 @@ public class RefinedMovement : MonoBehaviour
             Debug.Log(isMove);
 
         }
-        else
-        {
-            animator.SetBool("isMoving", false);
-            isMove = false;
-        }
-
-        //Move left
-        if (Input.GetAxis("Horizontal") < 0 && Hiding == false)
+        else if(Input.GetAxis("Horizontal") < 0 && Hiding == false)
         {
             //sr.flipX = true;
             rb.AddForce(new Vector2(-moveSpeed, 0));

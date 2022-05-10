@@ -7588,24 +7588,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 516857576238254209, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.586
-      objectReference: {fileID: 0}
-    - target: {fileID: 516857576238254209, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.094
-      objectReference: {fileID: 0}
     - target: {fileID: 516857576238254210, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 516857576238254210, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
-        type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 516857576238254211, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
@@ -7638,11 +7623,6 @@ PrefabInstance:
       propertyPath: vingetteOpacity
       value: 
       objectReference: {fileID: 910758770}
-    - target: {fileID: 516857576238254212, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 8d0a3b2487bae8144873a391ce2a57c7, type: 2}
     - target: {fileID: 516857576238254215, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
         type: 3}
       propertyPath: m_RootOrder
@@ -7697,16 +7677,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 516857576238254218, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.586
-      objectReference: {fileID: 0}
-    - target: {fileID: 516857576238254218, guid: 6585f2c8eea191c4ebd12ee0543eb96d,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.094
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6585f2c8eea191c4ebd12ee0543eb96d, type: 3}
